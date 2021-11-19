@@ -18,18 +18,13 @@ async def on_message(message):
       if(discord.utils.get(message.author.roles, name="Organizers")) is not None and (discord.utils.get(message.author.roles, name="Coordinators")) is not None:  
         # These are the embeds sent to initialise the basic channels in the server. They can be uncommented and used as needed
         
-
         #WELCOME EMBED
         embed=discord.Embed(title="Welcome to ISTE Tech Week - Yantra’21!", description="Greetings! We are really excited to have you here! This thread contains the necessary information for the workshop attendees.\n\nImportant announcements will be made on <#910447083608211530> \nAnnouncements related to the particular workshop will be made on their respective text channels.\n\nFeel free to clarify any doubts that you may have at <#910448673933115423> \n\nFind out more about us and our events at <#910448618069176330> \n\nLook out for important updates on <#910448690378997761> \n\nPlease follow the rules as mentioned at <#910447083608211531> \n\n**Have fun and happy learning!**", color=0xf8d19b)
-
-
         await message.channel.send(embed=embed)   
           
         # Template to add reactions to a message
-        # xyz=await message.channel.send(''' `Workshop Participants`\nReact to this message with <:horizon_logo:821981270925115433> to be assigned the `Workshop` role and gain access to the rest of the server\n\n`Technica Participants`\nReact to this message with <:technica_logo:815888353278558208>  to be assigned the `Hacker` role\n\nTo remove the roles assigned to you react with :no_entry_sign:''')
-        # await xyz.add_reaction('<a:horizon_logo:821981270925115433>')
-        # await xyz.add_reaction('<a:technica_logo:815888353278558208>')
-        # await xyz.add_reaction('🚫')
+        # xyz=await message.channel.send(' <Message body> ')
+        # await xyz.add_reaction('😀')
 
         await message.delete()
 
@@ -43,7 +38,7 @@ async def on_message(message):
   # Code to make the bot send a message to a specific channel
   # The command follows the format !msg <channel id> <message body>
   elif msg.startswith('!msg'):
-    # verifying whether the command is being invoked from the bot control channels built into the iste server
+    # Verifying whether the command is being invoked from the bot control channels built into the iste server
     if message.channel.id==818018748895723541 or message.channel.id==910448329861775360:
       parts=msg.split(' ',2)
       msg_channel=client.get_channel(int(parts[1]))
@@ -82,7 +77,7 @@ async def on_raw_reaction_add(payload):
         await user.remove_roles(works)
         await message.remove_reaction(payload.emoji, user)
         
-#  This function is used to deploy a flask server of the bot.
-#This allows us to use HTTPs pings to ensure that the bot does not shut down
+# This function is used to deploy a flask server of the bot.
+# This allows us to use HTTPs pings to ensure that the bot does not shut down
 keep_alive()
 client.run(os.getenv('TOKEN'))
