@@ -29,6 +29,6 @@ Alternatively use the import function on https://replit.com/ and run it there. W
 Use any sort of HTTPs pings to the IP address of the flask server. We set up one using https://uptimerobot.com
 <hr>
 <p align="center">
-	Made with :heart: &nbsp;by <a href="https://istevit.in/" target="_blank">ISTE-VIT</a>
+	Made with :heart: &nbsp;by<a href="https://istevit.in/" target="_blank">ISTE-VIT</a>
 </p>
 
