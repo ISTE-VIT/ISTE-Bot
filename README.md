@@ -23,7 +23,7 @@ This is the code for the discord bot found in the servers of ISTE-VIT.
     git clone https://github.com/ISTE-VIT/ISTE-Bot
     cd ISTE-Bot
     python main.py
-Alternatively use the import function on replit and run it there
+Alternatively use the import function on replit and run it there. We reccomend this as this will allow you to use a pinger to keep the bot online while you're away.
 
 ***For pinger:***
 Use any sort of HTTPs pings to the IP address of the flask server. We set up one using https://uptimerobot.com
