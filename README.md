@@ -28,7 +28,5 @@ Alternatively use the import function on replit and run it there. We reccomend t
 ***For pinger:***
 Use any sort of HTTPs pings to the IP address of the flask server. We set up one using https://uptimerobot.com
 
- <hr>
 
-<h4 align="center">Made with 💗 ISTE VIT ;)</h4>
 
