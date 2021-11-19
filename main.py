@@ -1,8 +1,6 @@
 import discord
 import os
-# from replit import db
 from keep_alive import keep_alive
-
 
 client=discord.Client()
 @client.event
@@ -28,7 +26,6 @@ async def on_message(message):
         await message.channel.send(embed=embed)   
           
         # Template to add reactions to a message
-
         # xyz=await message.channel.send(''' `Workshop Participants`\nReact to this message with <:horizon_logo:821981270925115433> to be assigned the `Workshop` role and gain access to the rest of the server\n\n`Technica Participants`\nReact to this message with <:technica_logo:815888353278558208>  to be assigned the `Hacker` role\n\nTo remove the roles assigned to you react with :no_entry_sign:''')
         # await xyz.add_reaction('<a:horizon_logo:821981270925115433>')
         # await xyz.add_reaction('<a:technica_logo:815888353278558208>')
@@ -54,7 +51,7 @@ async def on_message(message):
       await msg_channel.send(msg_content)
 
   # Code to make the bot send documents to a channel
-  # In this case the sixth sense installation guides have been sent
+  # In this case the Sixth Sense installation guides have been sent
   elif msg.startswith('!doc'):
     with open('Mac_Installation_for_SixthSense.pdf', 'rb') as f:
       doc = discord.File(f)
@@ -63,7 +60,7 @@ async def on_message(message):
       doc = discord.File(f)
       await sixthSense.channel.send(file=doc)
 
-  #  This code was used to assign roles to users on the basis of reaction
+  # This code was used to assign roles to users on the basis of reaction
   # It was implemented for the Horizon'21 server
 @client.event
 async def on_raw_reaction_add(payload):
@@ -84,5 +81,8 @@ async def on_raw_reaction_add(payload):
         await user.remove_roles(hacker)
         await user.remove_roles(works)
         await message.remove_reaction(payload.emoji, user)
+        
+#  This function is used to deploy a flask server of the bot.
+#This allows us to use HTTPs pings to ensure that the bot does not shut down
 keep_alive()
 client.run(os.getenv('TOKEN'))
